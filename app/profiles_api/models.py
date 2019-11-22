@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.conf import settings
 
 
@@ -58,7 +60,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
 class ProfileFeedItem(models.Model):
     """Profile status update"""
-    # Using django settings for user profile because we may use django default user model later
+    # Using django settings for user profile
+    # because we may use django default user model later
     user_profile = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE

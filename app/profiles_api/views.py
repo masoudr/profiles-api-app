@@ -1,10 +1,10 @@
-from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import filters
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+# from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 from profiles_api import models
 from profiles_api import serializers
@@ -34,9 +34,11 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (
         permissions.UpdateOwnStatus,
-        # this is for restricting anonymous user to creating objects but he can view the items
+        # this is for restricting anonymous user to creating objects
+        # but he can view the items
         # IsAuthenticatedOrReadOnly,
-        # Use this if you want to restrict anonymous user to even view the items
+        # Use this if you want to restrict anonymous user
+        # to even view the items
         IsAuthenticated,
     )
 
