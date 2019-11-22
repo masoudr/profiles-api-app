@@ -10,8 +10,6 @@ This project is a sample app that can be used for other projects.
 
 ## Features
 
-A REST API that supports the following:
-
 * Custom User Model
 * Creating new profiles.
 * Logging in with a profile.
