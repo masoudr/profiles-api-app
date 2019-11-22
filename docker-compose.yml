@@ -8,9 +8,7 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+    command: ["./wait-for-it.sh", "db:5432", "-t", "0", "--", "bash", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
     user: root
     environment: 
       - DB_HOST=db
