@@ -17,7 +17,7 @@ A REST API that supports the following:
 * Logging in with a profile.
 * Adding profile status updates.
 * Viewing users profile fields.
-* Searching for users profiles.
+* Searching for users profiles and feeds.
 
 ## Usage
 
